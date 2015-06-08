@@ -1,17 +1,47 @@
-.. Rally documentation master file, created by
-   sphinx-quickstart on Sun Jun  7 22:32:54 2015.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. Rally Documentation Master File
 
-Welcome to Rally's documentation!
-=================================
+Rally
+=====
 
-Contents:
+This web site forum software is a mashup of the core features from a variety of social web sites coupled with document sharing and task management tools.
+
+* **public** content for users and guests
+
+  * a *news section* for front page news, like a blog
+  * a *reference section* for free-form content, a wiki
+  * a *document repository* for white papers
+
+* **protected** content for registered general interest users
+
+  * a *question and answer* section, a simplified version of `OSQA <http://www.osqa.net/>`_ or `StackOverflow <http://stackoverflow.com/>`_
+
+* **private** content for groups and their members
+
+  * each group gets its own private *forum*, *document repository*, *wiki*, and *task board*
+  * the forum and document repository together function like `Yahoo Groups <https://groups.yahoo.com/>`_
+  * the task board is a `Kanban Board <https://en.wikipedia.org/wiki/Kanban_board>`_ that acts like `Trello <https://trello.com/>`_
+
+Installation
+------------
+
+Clone the project on `GitHub <https://github.com/JoelBender/rally>`_::
+
+    $ git clone https://github.com/JoelBender/rally
+
+Go into the project folder and install::
+
+    $ cd rally/
+    $ ./install.sh
+
+Follow the prompts during installation and your good to go!
+
+Support
+-------
+
+To get help create an `issue <https://github.com/JoelBender/rally/issues>`_ and `pull requests <https://github.com/JoelBender/rally/pulls>`_ are welcome.
 
 .. toctree::
    :maxdepth: 2
-
-
 
 Indices and tables
 ==================
@@ -19,4 +49,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
