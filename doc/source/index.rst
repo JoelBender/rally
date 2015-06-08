@@ -38,10 +38,18 @@ Follow the prompts during installation and your good to go!
 Support
 -------
 
-To get help create an `issue <https://github.com/JoelBender/rally/issues>`_ and `pull requests <https://github.com/JoelBender/rally/pulls>`_ are welcome.
+To get help create an `issue <https://github.com/JoelBender/rally/issues>`_, and `pull requests <https://github.com/JoelBender/rally/pulls>`_ are welcome.
+
+Schema
+------
+
+While this project is getting off the ground, it would be good to review the object and property definitions,
+beginning with the foundation classes.
 
 .. toctree::
    :maxdepth: 2
+
+   schema/index.rst
 
 Indices and tables
 ==================
