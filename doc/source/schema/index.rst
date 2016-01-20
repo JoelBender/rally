@@ -10,8 +10,8 @@ The core of the site is based on these foundation classes.
 * :class:`Transaction` a description of an activity that creates, modifies, or deletes some content
 
   * transactions are not generated for read activity
-  * transactions have a *type identifier* that describes the activity such as *postArticle*
-  * each transaction has a timestamp and a reference to the user that initiated the activity
+  * transactions have a *function identifier* that describes the activity such as *postArticle*
+  * each transaction has a timestamp and a reference to the user that initiated the activity, along with a reference to their session
 
 To help organize and manage content, there are these additional classes.
 
@@ -23,6 +23,8 @@ To help organize and manage content, there are these additional classes.
   * files that are uploaded
   * tasks that are created
   * etc.
+
+* :class:`Session` maintains session information such as the user, when the session was initiated, and other tracking information like the browser
 
 Forum
 -----
