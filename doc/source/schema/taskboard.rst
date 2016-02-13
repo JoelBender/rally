@@ -5,8 +5,8 @@ TaskBoard
 
 TaskBoard classes.
 
-TaskBoard Classes
------------------
+TaskBoard Object
+----------------
 
 .. class:: TaskBoard
 
@@ -27,6 +27,24 @@ TaskBoard Classes
 
    An array of Column objects.
 
+.. function:: createTaskBoard()
+
+   Create a TaskBoard.
+
+   :return: a :class:`TaskBoard` object
+
+.. function:: deleteTaskBoard(taskboard_id)
+
+   :param id taskboard_id: task board identifier
+   :return: None
+
+   Delete a task board, all of its columns, and all of its tasks.  For every 
+   task that is deleted, if the user initiating the transaction is not 
+   the owner of the task, the task owner is notified of the deleted task.
+
+Column Object
+-------------
+
 .. class:: Column
 
 .. attribute:: Column._id
@@ -45,6 +63,41 @@ TaskBoard Classes
 
    Inherited from :attr:`WikiPage.title`, the short description of the 
    column.
+
+.. function:: createColumn(taskboard_id)
+
+   :param id taskboard_id: task board identifier
+   :return: a :class:`Column` object
+
+   Create a column associated with a :class:`TaskBoard`.
+
+.. function:: moveColumn(column_id, taskboard_pos)
+
+   :param id column_id: column identifier
+   :param int taskboard_pos: column position
+
+   Move a column to a new position relative to other columns on its task 
+   board.  Columns are not moved between boards.
+
+.. function:: modifyColumn(column_id, column_title=value)
+
+   :param id task_id: column identifier
+   :param str column_title: attribute of the column
+   :param value: new title of the column
+
+   Modify a column.  The only attribute of the column that can be modified 
+   with this transaction is the column name.
+
+.. function:: deleteColumn(column_id)
+
+   :param id column_id: column identifier
+
+   Delete a column and all of its tasks.  For every 
+   task that is deleted, if the user initiating the transaction is not 
+   the owner of the task, the task owner is notified of the deleted task.
+
+Task Object
+-----------
 
 .. class:: Task
 
@@ -94,62 +147,6 @@ TaskBoard Classes
 
    Inherited from :attr:`WikiPage.refs`, an array of object identifiers
    that the wiki description references.
-
-TaskBoard Transactions
-----------------------
-
-.. function:: createTaskBoard()
-
-   Create a TaskBoard.
-
-   :return: a :class:`TaskBoard` object
-
-.. function:: deleteTaskBoard(taskboard_id)
-
-   :param id taskboard_id: task board identifier
-   :return: None
-
-   Delete a task board, all of its columns, and all of its tasks.  For every 
-   task that is deleted, if the user initiating the transaction is not 
-   the owner of the task, the task owner is notified of the deleted task.
-
-Column Transactions
--------------------
-
-.. function:: createColumn(taskboard_id)
-
-   :param id taskboard_id: task board identifier
-   :return: a :class:`Column` object
-
-   Create a column associated with a :class:`TaskBoard`.
-
-.. function:: moveColumn(column_id, taskboard_pos)
-
-   :param id column_id: column identifier
-   :param int taskboard_pos: column position
-
-   Move a column to a new position relative to other columns on its task 
-   board.  Columns are not moved between boards.
-
-.. function:: modifyColumn(column_id, column_title=value)
-
-   :param id task_id: column identifier
-   :param str column_title: attribute of the column
-   :param value: new title of the column
-
-   Modify a column.  The only attribute of the column that can be modified 
-   with this transaction is the column name.
-
-.. function:: deleteColumn(column_id)
-
-   :param id column_id: column identifier
-
-   Delete a column and all of its tasks.  For every 
-   task that is deleted, if the user initiating the transaction is not 
-   the owner of the task, the task owner is notified of the deleted task.
-
-Task Transactions
------------------
 
 .. function:: createTask(taskboard_id, column_id)
 

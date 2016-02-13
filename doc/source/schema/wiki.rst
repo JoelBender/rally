@@ -5,8 +5,8 @@ Wiki
 
 A **Wiki** is a collection of wiki pages.
 
-Wiki Classes
-------------
+Wiki Object
+-----------
 
 .. class:: Wiki
 
@@ -28,6 +28,32 @@ Wiki Classes
 
    The identifier of the group that "owns" the wiki.  Access to the wiki pages
    is governed by roles of the members of the group.
+
+Create Wiki
+~~~~~~~~~~~
+
+.. function:: create_wiki(group_id, parent_id)
+
+   :param id group_id: group identifier
+   :param id parent_id: wiki identifier or None
+
+   Create a Wiki.  The **parent_id** may be *None* if the wiki should not 
+   inherit the names of the parent wiki pages.
+
+   This transaction generates an additional :func:`createWikiPage` with a
+   default name "FrontPage".
+
+Delete Wiki
+~~~~~~~~~~~
+
+.. function:: delete_wiki(wiki_id)
+
+   :param id wiki_id: wiki identifier
+
+   Delete a Wiki and all of its pages.
+
+Wiki Page Object
+----------------
 
 .. class:: WikiPage
 
@@ -67,37 +93,20 @@ Wiki Classes
    are commonly references to wiki pages within the same wiki, but may 
    also be identifiers of documents, tasks, users, etc.
 
-Wiki Transactions
------------------
+Create Wiki Page
+~~~~~~~~~~~~~~~~
 
-.. function:: createWiki(group_id, parent_id)
-
-   :param id group_id: group identifier
-   :param id parent_id: wiki identifier or None
-
-   Create a Wiki.  The **parent_id** may be *None* if the wiki should not 
-   inherit the names of the parent wiki pages.
-
-   This transaction generates an additional :func:`createWikiPage` with a
-   default name "FrontPage".
-
-.. function:: deleteWiki(wiki_id)
-
-   :param id wiki_id: wiki identifier
-
-   Delete a Wiki and all of its pages.
-
-Wiki Page Transactions
-----------------------
-
-.. function:: createWikiPage(wiki_id, name=value)
+.. function:: create_wiki_page(wiki_id, name=value)
 
    :param id wiki_id: wiki identifier
    :param str name: the name of the wiki page
 
    Create a wiki page.
 
-.. function:: modifyWikiPage(wikipage_id, attr=value, ...)
+Modify Wiki Page
+~~~~~~~~~~~~~~~~
+
+.. function:: modify_wiki_page(wikipage_id, attr=value, ...)
 
    :param id wikipage_id: task identifier
    :param str attr: attribute of the wiki page
@@ -105,7 +114,10 @@ Wiki Page Transactions
 
    Modify a wiki page.
 
-.. function:: deleteWikiPage(wikipage_id)
+Delete Wiki Page
+~~~~~~~~~~~~~~~~
+
+.. function:: delete_wiki_page(wikipage_id)
 
    :param str wikipage_id: wiki page identifier
 
